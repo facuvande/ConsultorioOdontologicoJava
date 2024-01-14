@@ -1,21 +1,44 @@
 package logica;
 
 import java.util.Date;
+import java.util.List;
 
 public class Paciente extends Persona {
     private int id_paciente;
     private boolean tiene_OS;
     private String tipoSangre;
+    private Responsable unResponsable;
+    private List<Turno> listaTurnos;
 
     public Paciente() {
     }
 
-    public Paciente(int id_paciente, boolean tiene_OS, String tipoSangre, String dni, String nombre, String apellido, String telefono, String direccion, Date fecha_nac) {
+    public Paciente(int id_paciente, boolean tiene_OS, String tipoSangre, Responsable unResponsable, List<Turno> listaTurnos, String dni, String nombre, String apellido, String telefono, String direccion, Date fecha_nac) {
         super(dni, nombre, apellido, telefono, direccion, fecha_nac);
         this.id_paciente = id_paciente;
         this.tiene_OS = tiene_OS;
         this.tipoSangre = tipoSangre;
+        this.unResponsable = unResponsable;
+        this.listaTurnos = listaTurnos;
     }
+
+    public Responsable getUnResponsable() {
+        return unResponsable;
+    }
+
+    public void setUnResponsable(Responsable unResponsable) {
+        this.unResponsable = unResponsable;
+    }
+
+    public List<Turno> getListaTurnos() {
+        return listaTurnos;
+    }
+
+    public void setListaTurnos(List<Turno> listaTurnos) {
+        this.listaTurnos = listaTurnos;
+    }
+
+    
 
     public int getId_paciente() {
         return id_paciente;

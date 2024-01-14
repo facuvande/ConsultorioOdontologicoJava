@@ -1,5 +1,5 @@
 package logica;
 
-public class Odontologo {
+public class Odontologo{
     
 }
