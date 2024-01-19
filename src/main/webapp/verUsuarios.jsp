@@ -26,6 +26,7 @@
                             <th>Id</th>
                             <th>Nombre de Usuario</th>
                             <th>Rol</th>
+                            <th style="width:210px">Accion</th>
                         </tr>
                     </thead>
                     <tfoot>
@@ -33,6 +34,7 @@
                             <th>Id</th>
                             <th>Nombre de Usuario</th>
                             <th>Rol</th>
+                            <th style="width:210px">Accion</th>
                         </tr>
                     </tfoot>
                     
@@ -43,9 +45,23 @@
                     <tbody>
                         <% for(Usuario usu : listaUsuarios){ %>
                         <tr>
-                            <td><%=usu.getId_usuario()%></td>
+                            <td id="id_usu<%=usu.getId_usuario()%>"><%=usu.getId_usuario()%></td>
                             <td><%=usu.getNombreUsuario()%></td>
                             <td><%=usu.getRol()%></td>
+                            <td style="display: flex; width: 230px;">
+                                <form name="eliminar" action="SvElimUsuarios" method="POST">
+                                    <button type="submit" class="btn btn-primary btn-user btn-block" style="background-color:red; margin-right: 5px;">
+                                        <i class="fas fa-trash-alt"></i> Eliminar
+                                    </button>
+                                    <input type="hidden" name="id" value="<%=usu.getId_usuario()%>">
+                                </form>
+                                <form name="editar" action="SvEditUsuarios" method="POST">
+                                    <button type="submit" class="btn btn-primary btn-user btn-block" style="margin-left: 5px;">
+                                        <i class="fas fa-pencil-alt"></i> Editar
+                                    </button>
+                                    <input type="hidden" name="id" value="<%=usu.getId_usuario()%>">
+                                </form>
+                            </td>
                         </tr> 
                         <% } %>
                     </tbody>
